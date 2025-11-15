@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Rental - Enjoy Your Comfortable Trip</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+     <!-- Navbar -->
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-car"></i> CarRental</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link"
+                        href="homepage.html">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item active fw-bold text-orange"><a class="nav-link active" href="rates.html">Our Cars</a></li>
+                <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+
+                <!-- FIXED CONTACT BUTTON -->
+                <li class="nav-item">
+                    <a class="btn btn-primary-nav" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section-our-cars">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="img/banner_our_ cars.png" alt="About Us" class="img-fluid">
+                </div>
+                <div class="col-lg-6">
+                    <h1 style="color: #fff;">Our <span class="highlight">Cars</span></h1>
+                    <p class="lead mt-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <nav class="breadcrumb-custom">
+                        <a href="homepage.html">Home</a> <span class="mx-2" style="color: #fff;">::</span> <span
+                            class="active">Our Cars</span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section>
+        <div class="container rates-section">
+        <h1 class="page-title">Flexible <span class="orange-text">Rates</span></h1>
+        
+        <div class="row">
+            <!-- Filter Sidebar -->
+            <div class="col-lg-3 col-md-4">
+                <div class="filter-sidebar">
+                    <h4>Filter Vehicles</h4>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Category</label>
+                        <select class="form-select" id="filterCategory">
+                            <option value="">All Categories</option>
+                            <option value="Economy">Economy</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Luxury">Luxury</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Vehicle Type</label>
+                        <select class="form-select" id="filterType">
+                            <option value="">All Types</option>
+                            <option value="Sedan">Sedan</option>
+                            <option value="SUV">SUV</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Hatchback">Hatchback</option>
+                            <option value="Compact">Compact</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Seats</label>
+                        <select class="form-select" id="filterSeats">
+                            <option value="">Any</option>
+                            <option value="4">4 Seats</option>
+                            <option value="5">5 Seats</option>
+                            <option value="7">7 Seats</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Bags</label>
+                        <select class="form-select" id="filterBags">
+                            <option value="">Any</option>
+                            <option value="2">2 Bags</option>
+                            <option value="3">3 Bags</option>
+                            <option value="4">4 Bags</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Max Price per Hour (₹)</label>
+                        <input type="number" class="form-control" id="filterPrice" placeholder="Enter max price">
+                    </div>
+
+                    <button class="btn btn-primary w-100" onclick="applyFilters()">Apply Filters</button>
+                    <button class="btn btn-outline-secondary w-100" onclick="resetFilters()">Reset</button>
+                </div>
+            </div>
+
+            <!-- Car Cards -->
+            <div class="col-lg-9 col-md-8">
+                <div class="row" id="carContainer">
+                    <!-- Cards will be generated by JavaScript -->
+                </div>
+                <div id="noResults" class="no-results" style="display: none;">
+                    No vehicles found matching your filters.
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="row" style="justify-content: center; align-items: center;">
+                <h2 class="d-flex justify-content-center align-items-center mb-5" style="gap: 5px;">Contact <span
+                        style="color: var(--primary-orange);">Us</span></h2>
+                <div class="col-lg-6 mb-4">
+                    <div class="contact-form">
+                        <form>
+                            <div class="mb-3">
+                                <label class="form-label">Your Name</label>
+                                <input type="text" class="form-control" placeholder="Enter your name">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" placeholder="Enter your phone">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Message</label>
+                                <textarea class="form-control" rows="4" placeholder="Your message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="contact-info">
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-map-marker-alt me-2"></i> Address</h5>
+                                <p>123 Main Street, Ankleshwar, Gujarat, India</p>
+                            </div>
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-phone me-2"></i> Phone</h5>
+                                <p>+91 1234567890</p>
+                            </div>
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-envelope me-2"></i> Email</h5>
+                                <p>info@carrental.com</p>
+                            </div>
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-clock me-2"></i> Working Hours</h5>
+                                <p>24/7 Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+    <div class="container">
+        <div class="row justify-content-between align-items-start">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>About Us</h5>
+                <p>We are a leading car rental service provider offering quality vehicles at affordable prices.</p>
+                <div class="footer-social mt-3">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4" style="width: auto;">
+                <h5>Quick Links</h5>
+                <div class="footer-links">
+                    <a href="homepage.html">Home</a>
+                    <a href="aboutus.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="rates.html">Our Cars</a>
+                    <a href="blogs.html">Blogs</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Newsletter</h5>
+                <p>Subscribe to get latest updates and offers.</p>
+                <form class="d-flex">
+                    <input type="email" class="form-control me-2" placeholder="Your email">
+                    <button class="btn btn-dark" type="submit">Subscribe</button>
+                </form>
+            </div>
+
+        </div>
+
+        <hr class="bg-white">
+
+        <div class="text-center">
+            <p>&copy; 2025 Car Rental. All Rights Reserved. Designed with mysite.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.2)';
+            } else {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+
+        const bookingButtons = document.querySelectorAll(".booking-tabs .btn");
+
+        bookingButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                bookingButtons.forEach(b => b.classList.remove("active")); // remove active from all
+                btn.classList.add("active"); // add active to clicked button
+            });
+        });
+
+        const cars = [
+            {
+                category: 'Economy',
+                type: 'Sedan',
+                seats: 4,
+                bags: 2,
+                ac: true,
+                hourlyRate: 400,
+                dailyRate: 3500,
+                image: 'https://images.unsplash.com/photo-1642130204821-74126d1cb88e?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'SUV',
+                type: 'SUV',
+                seats: 7,
+                bags: 3,
+                ac: true,
+                hourlyRate: 600,
+                dailyRate: 5500,
+                image: 'https://images.unsplash.com/photo-1706682783267-c2a92ddac5a6?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'Luxury',
+                type: 'Premium',
+                seats: 4,
+                bags: 3,
+                ac: true,
+                hourlyRate: 900,
+                dailyRate: 8500,
+                image: 'https://images.unsplash.com/photo-1674795841496-e4b30bc14db5?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'Economy',
+                type: 'Hatchback',
+                seats: 4,
+                bags: 2,
+                ac: true,
+                hourlyRate: 350,
+                dailyRate: 3000,
+                image: 'https://images.unsplash.com/photo-1731916508420-48223500a882?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'SUV',
+                type: 'SUV',
+                seats: 7,
+                bags: 4,
+                ac: true,
+                hourlyRate: 700,
+                dailyRate: 6500,
+                image: 'https://images.unsplash.com/photo-1715822425520-39f7778c9404?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'Luxury',
+                type: 'Premium',
+                seats: 4,
+                bags: 3,
+                ac: true,
+                hourlyRate: 1000,
+                dailyRate: 9500,
+                image: 'https://images.unsplash.com/photo-1705624843697-4461f9dce482?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'Economy',
+                type: 'Sedan',
+                seats: 5,
+                bags: 2,
+                ac: true,
+                hourlyRate: 450,
+                dailyRate: 4000,
+                image: 'https://images.unsplash.com/photo-1651751234256-86187ebf7302?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'SUV',
+                type: 'Compact',
+                seats: 5,
+                bags: 3,
+                ac: true,
+                hourlyRate: 550,
+                dailyRate: 5000,
+                image: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=500'
+            },
+            {
+                category: 'Economy',
+                type: 'Hatchback',
+                seats: 4,
+                bags: 2,
+                ac: true,
+                hourlyRate: 380,
+                dailyRate: 3200,
+                image: 'https://images.unsplash.com/photo-1685483143087-bf4db9542633?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'Luxury',
+                type: 'Premium',
+                seats: 5,
+                bags: 3,
+                ac: true,
+                hourlyRate: 1200,
+                dailyRate: 11000,
+                image: 'https://images.unsplash.com/photo-1663852397535-18292e115327?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            },
+            {
+                category: 'Economy',
+                type: 'Sedan',
+                seats: 4,
+                bags: 2,
+                ac: true,
+                hourlyRate: 420,
+                dailyRate: 3800,
+                image: 'https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=500'
+            },
+            {
+                category: 'SUV',
+                type: 'SUV',
+                seats: 7,
+                bags: 4,
+                ac: true,
+                hourlyRate: 650,
+                dailyRate: 6000,
+                image: 'https://images.unsplash.com/photo-1622893288761-823ba60f17a6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8c3V2fGVufDB8fDB8fHww'
+            }
+        ];
+
+        function renderCars(carsToRender) {
+            const container = document.getElementById('carContainer');
+            const noResults = document.getElementById('noResults');
+            
+            if (carsToRender.length === 0) {
+                container.innerHTML = '';
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            container.innerHTML = carsToRender.map(car => `
+                <div class="col-lg-4 col-md-6">
+                    <div class="car-card" style="padding: 0rem !important">
+                        <div class="text-center">
+                            <span class="category-badge" style="margin: 20px 0px 0px 0px !important">${car.category}</span>
+                        </div>
+                        <img src="${car.image}" alt="${car.type}" class="car-image" style="padding: 0px 20px !important">
+                        <div class="car-details" style="padding: 0px !important">
+                            <h3 class="car-title">${car.type}</h3>
+                            <p class="car-specs">${car.seats} Seats • ${car.bags} Bags • ${car.ac ? 'AC' : 'Non-AC'}</p>
+                        </div>
+                        <div class="pricing-section" style="padding: 0px 20px 0px 20px">
+                            <div class="price-row">
+                                <span class="price-label">Per Hour:</span>
+                                <span class="price-value">₹${car.hourlyRate}/-</span>
+                            </div>
+                            <div class="price-row">
+                                <span class="price-label">Per Day:</span>
+                                <span class="price-value">₹${car.dailyRate}/-</span>
+                            </div>
+                        </div>
+                        <button class="book-btn">Book Now</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function applyFilters() {
+            const category = document.getElementById('filterCategory').value;
+            const type = document.getElementById('filterType').value;
+            const seats = document.getElementById('filterSeats').value;
+            const bags = document.getElementById('filterBags').value;
+            const maxPrice = document.getElementById('filterPrice').value;
+
+            let filtered = cars.filter(car => {
+                if (category && car.category !== category) return false;
+                if (type && car.type !== type) return false;
+                if (seats && car.seats !== parseInt(seats)) return false;
+                if (bags && car.bags !== parseInt(bags)) return false;
+                if (maxPrice && car.hourlyRate > parseInt(maxPrice)) return false;
+                return true;
+            });
+
+            renderCars(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('filterCategory').value = '';
+            document.getElementById('filterType').value = '';
+            document.getElementById('filterSeats').value = '';
+            document.getElementById('filterBags').value = '';
+            document.getElementById('filterPrice').value = '';
+            renderCars(cars);
+        }
+
+        // Initial render
+        renderCars(cars);
+  
+    </script>
+</body>
+</html>

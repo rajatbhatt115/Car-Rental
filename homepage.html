@@ -7,508 +7,55 @@
     <title>Car Rental - Enjoy Your Comfortable Trip</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
-
-        :root {
-            --primary-orange: #ff6b35;
-            --dark-bg: #1a1a1a;
-            --light-gray: #f8f9fa;
-        }
-
-        body,
-        p,
-        a,
-        li,
-        input,
-        textarea,
-        button,
-        label {
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            font-style: normal;
-            font-optical-sizing: auto;
-        }
-
-        /* Apply Saira Bold to all headings */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-family: "Saira", sans-serif;
-            font-weight: 700;
-            font-style: normal;
-            font-optical-sizing: auto;
-        }
-
-        /* Keep your existing rule */
-        body {
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Navbar */
-        .navbar {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 1rem 0;
-            font-family: "Roboto", sans-serif;
-            font-weight: 500;
-            font-style: normal;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            color: var(--dark-bg) !important;
-        }
-
-        .nav-link {
-            color: var(--dark-bg) !important;
-            margin: 0 1rem;
-            font-weight: 500;
-        }
-
-
-        .nav-link.active {
-            font-weight: 700;
-            /* Bold */
-            color: #ff6600 !important;
-            /* Orange */
-        }
-
-        .btn-primary {
-            background: var(--primary-orange);
-            border: none;
-            padding: 0.5rem 2rem;
-            border-radius: 5px;
-        }
-
-        .btn-primary:hover {
-            background: #ff5722;
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background: var(--dark-bg);
-            color: white;
-            padding: 5rem 0;
-            position: relative;
-        }
-
-        .hero-section h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .hero-section h1 .highlight {
-            color: var(--primary-orange);
-        }
-
-        .hero-illustration {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Booking Form */
-        .booking-section {
-            background: white;
-            padding: 3rem 0;
-        }
-
-        .booking-form {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            margin-top: -20px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .booking-tabs {
-            margin-bottom: 2rem;
-        }
-
-        .booking-tabs .btn {
-            margin-right: 1rem;
-            border-radius: 20px;
-            padding: 0.5rem 1.5rem;
-        }
-
-        /* default button look */
-        .booking-tabs .btn-outline-secondary {
-            color: #333;
-            border-color: #ccc;
-        }
-
-        /* active button look */
-        .booking-tabs .btn.active,
-        .booking-tabs .btn:focus,
-        .booking-tabs .btn:active {
-            background-color: var(--primary-orange) !important;
-            border-color: var(--primary-orange) !important;
-            color: #fff !important;
-        }
-
-        /* Orange Section */
-        .orange-section {
-            background: linear-gradient(135deg, var(--primary-orange) 0%, #ff8c42 100%);
-            color: white;
-            padding: 5rem 0;
-        }
-
-        .orange-section h2 {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 2rem;
-        }
-
-        /* Why Us Section */
-        .why-us-section {
-            padding: 5rem 0;
-            background: var(--light-gray);
-        }
-
-        .why-us-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .why-us-section h2 .highlight {
-            color: var(--primary-orange);
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: start;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-orange);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        /* Clients Section */
-        .clients-section {
-            padding: 3rem 0;
-            background: white;
-        }
-
-        .clients-section h3 {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .clients-section h3 .highlight {
-            color: var(--primary-orange);
-        }
-
-        .client-logo {
-            height: 60px;
-            object-fit: contain;
-            filter: grayscale(100%);
-            transition: all 0.3s;
-        }
-
-        .client-logo:hover {
-            filter: grayscale(0%);
-        }
-
-        /* Services Section */
-        .services-section {
-            padding: 5rem 0;
-            background: #e9e9e9
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            height: 100%;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary-orange);
-            margin-bottom: 1rem;
-        }
-
-        /* Rates Section */
-        .rates-section {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .rates-section h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .rates-section h2 .highlight {
-            color: var(--primary-orange);
-        }
-
-        .car-card {
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-
-        .car-badge {
-            background: var(--primary-orange);
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .car-image {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            margin: 1rem 0;
-        }
-
-        .price-box {
-            background: var(--dark-bg);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 5px;
-            margin-top: 1rem;
-        }
-
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-orange);
-        }
-
-        /* Advantages Section */
-        .advantages-section {
-            background: var(--dark-bg);
-            color: white;
-            padding: 5rem 0;
-        }
-
-        .advantage-card {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .advantage-icon {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 107, 53, 0.2);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-        }
-
-        .advantage-icon i {
-            font-size: 2rem;
-            color: var(--primary-orange);
-        }
-
-        .how-it-works {
-            background: var(--primary-orange);
-            padding: 3rem;
-            border-radius: 10px;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            padding: 4rem 0;
-            border-top: 3px dashed var(--primary-orange);
-            border-bottom: 3px dashed var(--primary-orange);
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: bold;
-            color: var(--primary-orange);
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 5rem 0;
-            background: var(--light-gray);
-        }
-
-        .team-card {
-            background: white;
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .team-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 1rem;
-        }
-
-        .social-icons a {
-            color: var(--dark-bg);
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        /* Testimonials */
-        .testimonials-section {
-            background: var(--dark-bg);
-            color: white;
-            padding: 5rem 0;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 2rem;
-            height: 100%;
-        }
-
-        .testimonial-rating {
-            color: var(--primary-orange);
-            margin-bottom: 1rem;
-        }
-
-        /* News Section */
-        .news-section {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-        }
-
-        .news-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .news-content {
-            padding: 1.5rem;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--dark-bg);
-            color: white;
-            padding: 5rem 0;
-        }
-
-        .contact-form {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 2rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-orange);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-social a {
-            color: white;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-        }
-
-
-
-        /* 50% smaller logos */
-        .logo-small {
-            max-height: 85px;
-            /* smaller than before (was 80px → now 40px) */
-            width: auto;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-car"></i> CarRental</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active fw-bold text-orange"><a class="nav-link active" href="homepage.html">Home</a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#rates">Rates</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    <li class="nav-item"><button class="btn btn-primary">Sign In</button></li>
-                </ul>
-            </div>
+   <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-car"></i> CarRental</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item active fw-bold text-orange"><a class="nav-link active"
+                        href="homepage.html">Home</a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="aboutus.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="rates.html">Our Cars</a></li>
+                <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
+
+                <!-- FIXED CONTACT BUTTON -->
+                <li class="nav-item">
+                    <a class="btn btn-primary-nav" href="#contact">Contact</a>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
+
 
     <!-- Hero Section -->
-    <section class="hero-section" id="home" style="margin-top: 76px;">
+    <section class="hero-section-home" id="home" style="margin-top: 76px;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
-                    <h1>Enjoy Your <span class="highlight">Comfortable</span> Trip</h1>
-                    <p class="lead">Book your perfect ride with us and experience the best car rental service in town.
-                        Safe, reliable, and affordable.</p>
+                    <img src="img/banner_home.png" alt="Car Rental Illustration" class="hero-illustration">
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&h=600&fit=crop"
-                        alt="Car Rental Illustration" class="hero-illustration">
+                    <h1 style="color: #fff;">Enjoy Your <span class="highlight">Comfortable</span> Trip</h1>
+                    <p class="lead">Book your perfect ride with us and experience the best car rental service in town.
+                        Safe, reliable, and affordable.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Booking Form -->
-    <section class="booking-section">
+    <!-- <section class="booking-section">
         <div class="container">
             <div class="booking-form">
                 <h3>Booking <span style="color: var(--primary-orange);">Cab</span> Online</h3>
@@ -542,6 +89,57 @@
                 </form>
             </div>
         </div>
+    </section> -->
+
+    <!-- Rates Section -->
+    <section class="rates-section" id="rates">
+        <div class="container">
+            <h2>Flexible <span class="highlight">Rates</span></h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <span class="car-badge">Economy</span>
+                        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=300&h=200&fit=crop"
+                            alt="Economy Car" class="car-image">
+                        <h4>Sedan</h4>
+                        <p>4 Seats • 2 Bags • AC</p>
+                        <div class="price-box">
+                            <div style="color: black;"> Per Hour: <span class="price">₹400/-</span></div>
+                            <div style="color: black;" class="mt-2"> Per Day: <span class="price">₹3500/-</span></div>
+                            <button class="btn btn-primary mt-3 w-100">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <span class="car-badge">SUV</span>
+                        <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=300&h=200&fit=crop"
+                            alt="SUV" class="car-image">
+                        <h4>SUV</h4>
+                        <p>7 Seats • 3 Bags • AC</p>
+                        <div class="price-box">
+                            <div style="color: black;">Per Hour: <span class="price">₹600/-</span></div>
+                            <div style="color: black;" class="mt-2">Per Day: <span class="price">₹5500/-</span></div>
+                            <button class="btn btn-primary mt-3 w-100">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="car-card">
+                        <span class="car-badge">Luxury</span>
+                        <img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=300&h=200&fit=crop"
+                            alt="Luxury Car" class="car-image">
+                        <h4>Premium</h4>
+                        <p>4 Seats • 3 Bags • Premium AC</p>
+                        <div class="price-box">
+                            <div style="color: black;">Per Hour: <span class="price">₹900/-</span></div>
+                            <div style="color: black;" class="mt-2">Per Day: <span class="price">₹8500/-</span></div>
+                            <button class="btn btn-primary mt-3 w-100">Book Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Orange Info Section -->
@@ -556,8 +154,7 @@
                     <button class="btn btn-light mt-3">Learn More</button>
                 </div>
                 <div class="col-lg-6">
-                    <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&h=400&fit=crop"
-                        alt="Map Illustration" class="img-fluid">
+                    <img src="img/img2.png" alt="Map Illustration" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -607,8 +204,50 @@
     </section>
 
 
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Services Section -->
+    <section class="services-section-home" id="services" style="background-color: #e9e9e9;">
+        <div class="container">
+            <h2 class="text-center mb-5" style="font-size: 40px;">Our <span
+                    style="color: var(--primary-orange);">Services</span></h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-car"></i></div>
+                        <h4>City Transfer</h4>
+                        <p>Comfortable and reliable transportation within the city for all your needs.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-plane"></i></div>
+                        <h4>Airport Transfer</h4>
+                        <p>Hassle-free pickup and drop services to and from the airport.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                        <h4>Business Travel</h4>
+                        <p>Professional transportation solutions for your business meetings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- partners section -->
-    <section class="partners py-5 text-center bg-light">
+    <section class="partners py-5 text-center bg-light parners-section">
         <div class="container">
             <h2 class="mb-4">Our Trusted <span style="color: var(--primary-orange);">Partners</span></h2>
             <div class="row justify-content-center align-items-center">
@@ -642,94 +281,6 @@
     </section>
 
 
-
-
-
-
-
-
-
-
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <h2 class="text-center mb-5">Our <span style="color: var(--primary-orange);">Services</span></h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-car"></i></div>
-                        <h4>City Transfer</h4>
-                        <p>Comfortable and reliable transportation within the city for all your needs.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-plane"></i></div>
-                        <h4>Airport Transfer</h4>
-                        <p>Hassle-free pickup and drop services to and from the airport.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-briefcase"></i></div>
-                        <h4>Business Travel</h4>
-                        <p>Professional transportation solutions for your business meetings.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Rates Section -->
-    <section class="rates-section" id="rates">
-        <div class="container">
-            <h2>Flexible <span class="highlight">Rates</span></h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="car-card">
-                        <span class="car-badge">Economy</span>
-                        <img src="https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?w=300&h=200&fit=crop"
-                            alt="Economy Car" class="car-image">
-                        <h4>Sedan</h4>
-                        <p>4 Seats • 2 Bags • AC</p>
-                        <div class="price-box">
-                            <div>Per Hour: <span class="price">₹400/-</span></div>
-                            <div class="mt-2">Per Day: <span class="price">₹3500/-</span></div>
-                            <button class="btn btn-primary mt-3 w-100">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="car-card">
-                        <span class="car-badge">SUV</span>
-                        <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=300&h=200&fit=crop"
-                            alt="SUV" class="car-image">
-                        <h4>SUV</h4>
-                        <p>7 Seats • 3 Bags • AC</p>
-                        <div class="price-box">
-                            <div>Per Hour: <span class="price">₹600/-</span></div>
-                            <div class="mt-2">Per Day: <span class="price">₹5500/-</span></div>
-                            <button class="btn btn-primary mt-3 w-100">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="car-card">
-                        <span class="car-badge">Luxury</span>
-                        <img src="https://images.unsplash.com/photo-1563720360172-67b8f3dce741?w=300&h=200&fit=crop"
-                            alt="Luxury Car" class="car-image">
-                        <h4>Premium</h4>
-                        <p>4 Seats • 3 Bags • Premium AC</p>
-                        <div class="price-box">
-                            <div>Per Hour: <span class="price">₹900/-</span></div>
-                            <div class="mt-2">Per Day: <span class="price">₹8500/-</span></div>
-                            <button class="btn btn-primary mt-3 w-100">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Advantages & How It Works -->
     <section class="advantages-section">
@@ -931,7 +482,7 @@
                             <span class="badge bg-warning text-dark mb-2">25 Jan 2025</span>
                             <h5>New Fleet Addition</h5>
                             <p>We've added 10 new luxury vehicles to our fleet to serve you better.</p>
-                            <button class="btn btn-primary btn-sm">Read More</button>
+                            <a href="blogdetails.html"><button class="btn btn-primary btn-sm">Read More</button></a>
                         </div>
                     </div>
                 </div>
@@ -943,7 +494,7 @@
                             <span class="badge bg-warning text-dark mb-2">20 Jan 2025</span>
                             <h5>Safety First Initiative</h5>
                             <p>All our vehicles now equipped with latest safety features and sanitized regularly.</p>
-                            <button class="btn btn-primary btn-sm">Read More</button>
+                            <a href="blogdetails.html"><button class="btn btn-primary btn-sm">Read More</button></a>
                         </div>
                     </div>
                 </div>
@@ -955,7 +506,7 @@
                             <span class="badge bg-warning text-dark mb-2">15 Jan 2025</span>
                             <h5>Special Winter Offers</h5>
                             <p>Book now and get up to 20% off on all weekly and monthly rentals.</p>
-                            <button class="btn btn-primary btn-sm">Read More</button>
+                            <a href="blogdetails.html"><button class="btn btn-primary btn-sm">Read More</button></a>
                         </div>
                     </div>
                 </div>
@@ -967,8 +518,9 @@
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="row" style="justify-content: center; align-items: center;">
+                <h2 class="d-flex justify-content-center align-items-center mb-5" style="gap: 5px;">Contact <span
+                        style="color: var(--primary-orange);">Us</span></h2>
                 <div class="col-lg-6 mb-4">
-                    <h2>Contact <span style="color: var(--primary-orange);">Us</span></h2>
                     <div class="contact-form">
                         <form>
                             <div class="mb-3">
@@ -991,80 +543,80 @@
                         </form>
                     </div>
                 </div>
+
                 <div class="col-lg-6">
-                    <div class="contact-info mt-5">
-                        <div class="mb-4" style="margin-bottom: 3.5rem !important;">
-                            <h5><i class="fas fa-map-marker-alt me-2"></i> Address</h5>
-                            <p>123 Main Street, Ankleshwar, Gujarat, India</p>
-                        </div>
-                        <div class="mb-4" style="margin-bottom: 3.5rem !important;">
-                            <h5><i class="fas fa-phone me-2"></i> Phone</h5>
-                            <p>+91 1234567890</p>
-                        </div>
-                        <div class="mb-4" style="margin-bottom: 3.5rem !important;">
-                            <h5><i class="fas fa-envelope me-2"></i> Email</h5>
-                            <p>info@carrental.com</p>
-                        </div>
-                        <div class="mb-4" style="margin-bottom: 3.5rem !important;">
-                            <h5><i class="fas fa-clock me-2"></i> Working Hours</h5>
-                            <p>24/7 Available</p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="contact-info">
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-map-marker-alt me-2"></i> Address</h5>
+                                <p>123 Main Street, Ankleshwar, Gujarat, India</p>
+                            </div>
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-phone me-2"></i> Phone</h5>
+                                <p>+91 1234567890</p>
+                            </div>
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-envelope me-2"></i> Email</h5>
+                                <p>info@carrental.com</p>
+                            </div>
+                            <div class="mb-4" style="margin-bottom: 3.5rem !important;">
+                                <h5><i class="fas fa-clock me-2"></i> Working Hours</h5>
+                                <p>24/7 Available</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>About Us</h5>
-                    <p>We are a leading car rental service provider offering quality vehicles at affordable prices.</p>
-                    <div class="footer-social mt-3">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Quick Links</h5>
-                    <div class="footer-links">
-                        <a href="homepage.html">Home</a>
-                        <a href="aboutus.html">About</a>
-                        <a href="#services">Services</a>
-                        <a href="#rates">Rates</a>
-                        <a href="#contact">Contact</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Our Services</h5>
-                    <div class="footer-links">
-                        <a href="#">City Transfer</a>
-                        <a href="#">Airport Transfer</a>
-                        <a href="#">Business Travel</a>
-                        <a href="#">Luxury Cars</a>
-                        <a href="#">Economy Cars</a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5>Newsletter</h5>
-                    <p>Subscribe to get latest updates and offers.</p>
-                    <form class="d-flex">
-                        <input type="email" class="form-control me-2" placeholder="Your email">
-                        <button class="btn btn-dark" type="submit">Subscribe</button>
-                    </form>
+    <div class="container">
+        <div class="row justify-content-between align-items-start">
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>About Us</h5>
+                <p>We are a leading car rental service provider offering quality vehicles at affordable prices.</p>
+                <div class="footer-social mt-3">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <hr class="bg-white">
-            <div class="text-center">
-                <p>&copy; 2025 Car Rental. All Rights Reserved. Designed with mysite.
-                </p>
+
+            <div class="col-lg-4 col-md-6 mb-4" style="width: auto;">
+                <h5>Quick Links</h5>
+                <div class="footer-links">
+                    <a href="homepage.html">Home</a>
+                    <a href="aboutus.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="rates.html">Our Cars</a>
+                    <a href="blogs.html">Blogs</a>
+                </div>
             </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5>Newsletter</h5>
+                <p>Subscribe to get latest updates and offers.</p>
+                <form class="d-flex">
+                    <input type="email" class="form-control me-2" placeholder="Your email">
+                    <button class="btn btn-dark" type="submit">Subscribe</button>
+                </form>
+            </div>
+
         </div>
-    </footer>
+
+        <hr class="bg-white">
+
+        <div class="text-center">
+            <p>&copy; 2025 Car Rental. All Rights Reserved. Designed with mysite.</p>
+        </div>
+    </div>
+</footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
