@@ -7,6 +7,10 @@
       --light-gray: #f8f9fa;
   }
 
+  html, body {
+    overflow-x: hidden;
+}
+
   body,
   p,
   a,
@@ -1265,3 +1269,10 @@
             color: var(--primary-orange);
         }
         
+
+        @media (max-width: 820px) {
+     .banner-gap
+     {
+        gap: 35px;
+     }
+}
